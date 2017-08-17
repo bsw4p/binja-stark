@@ -1,0 +1,15 @@
+
+{
+	"plugin": {
+		"name": "binja_toolbar",
+		"type": ["ui"],
+		"api": "python2",
+		"description": "Basic binary statistics",
+		"longdescription": "TODO",
+		"license": {
+			"name": "MIT",
+		},
+		"version": "0.0.1",
+		"author": "Benedikt Schmotzle",
+	}
+}
