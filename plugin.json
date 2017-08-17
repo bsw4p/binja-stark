@@ -1,7 +1,7 @@
 
 {
 	"plugin": {
-		"name": "binja_toolbar",
+		"name": "stark",
 		"type": ["ui"],
 		"api": "python2",
 		"description": "Basic binary statistics",
