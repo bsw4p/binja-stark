@@ -202,13 +202,20 @@ class StatisticsWidget(BinjaWidget):
 
     def cell_action(self, row, column):
         # TODO: view highlighting
-        self.navigate(self._view, self._table.item(row, 0).text())
+        self.navigate(self._view, self._table.item(row, 0).text(), self._table.item(row, 1).text())
 
-    def navigate(self, bv, name):
+    def navigate(self, bv, name, val):
 	try:
 		address = bv.get_symbol_by_raw_name(name).address
 	except:
-		address = filter(lambda x: x.name == name, bv.functions)[0].start
+		funcs = filter(lambda x: x.name == name, bv.functions)
+		if len(funcs) > 0:
+			address = filter(lambda x: x.name == name, bv.functions)[0].start
+		else:
+			if "0x" in val:
+				address = int(val, 16)
+			else:
+				address = int(val)
 
         bv.navigate('Graph:' + bv.view_type, address)
 
